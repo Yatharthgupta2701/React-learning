@@ -3,13 +3,13 @@ import { X } from 'lucide-react';
 
 const App = () => {
 
-  // Heading
+  // Notes Heading
   const [heading, setHeading] = useState('')
   const handleChangeHeading = (e) => {
     setHeading(e.target.value)
   }
 
-  // Details
+  // Note Details
   const [details, setDetails] = useState('')
   const handleChangeDetails = (e) => {
     setDetails(e.target.value)
@@ -26,6 +26,7 @@ const App = () => {
     setDetails('')
   }
 
+  // Delete Note
   const deleteNote = (idx) => {
     const newTask = [...task];
     newTask.splice(idx,1);
@@ -34,6 +35,7 @@ const App = () => {
 
   return (
     <div className='h-screen bg-black text-white lg:flex'>
+
       <form className='flex flex-col gap-4 p-10 lg:w-1/2' onSubmit={(e) => {
         formHandler(e);
       }}>
@@ -41,6 +43,7 @@ const App = () => {
         <textarea onChange={handleChangeDetails} value={details} type="text" placeholder='Write Deatils Here' className='px-5 py-2 h-30 border-2 rounded'/>
         <button className='active:bg-black active:text-white bg-white text-black px-5 py-2 rounded font-bold'>Add Note</button>
       </form>
+
       <div className='flex flex-wrap p-10 lg:w-1/2 gap-5 h-100% bg-black justify-between items-start'>
         {task.map(function(elem,idx){
           return <div key={idx} className='relative h-50 w-50 rounded-2xl bg-cover bg-white text-black p-2'>
@@ -52,6 +55,7 @@ const App = () => {
           </div>
         })}
       </div>
+      
     </div>
   )
 }
