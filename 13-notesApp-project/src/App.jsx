@@ -3,7 +3,7 @@ import { X } from 'lucide-react';
 
 const App = () => {
 
-  // Notes Heading
+  // Note Heading
   const [heading, setHeading] = useState('')
   const handleChangeHeading = (e) => {
     setHeading(e.target.value)
